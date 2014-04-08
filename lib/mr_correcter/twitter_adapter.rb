@@ -12,7 +12,6 @@ module MrCorrecter
             config.access_token        = auth[:oauth_token]
             config.access_token_secret = auth[:oauth_secret]
           end
-
       end
 
       # Search Twitter for `text`. Add optional time param to restrict search
@@ -28,15 +27,12 @@ module MrCorrecter
 
         # rate limited!
         @client.search("\"#{text}\"").each do |result|
-
           if since_mins_ago > 0
             tweets << result if is_tweet_in_time?(result.created_at, time_ago)
           else
             tweets << result
           end
-
         end 
-
 
         return tweets
       end
@@ -48,7 +44,7 @@ module MrCorrecter
       def send(text, options = {})
         return if text.nil? || text.empty?
 
-        @client.update(text, options)
+        @client.update(text, options) # rate limited!
       end
 
       # Reply to a particular tweet
