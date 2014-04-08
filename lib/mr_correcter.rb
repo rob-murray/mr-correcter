@@ -15,8 +15,15 @@ module MrCorrecter
         attr_accessor :configuration, :corrections
     end
 
+    def self.configuration
+        @configuration ||= Configuration.new
+    end
+
+    def self.reset
+        @configuration = Configuration.new
+    end
+
     def self.configure
-        self.configuration ||= Configuration.new
         yield(configuration)
     end
 
@@ -31,7 +38,6 @@ module MrCorrecter
 
     def self.correct!
         logger.info "Starting MrCorrecter! Searching for text within search period of #{configuration.search_period_hours} hours"
-
         logger.warn "Tweet posting is: %s" % (configuration.post_tweets ? "ENABLED" : "DISABLED")
 
         controller = MrCorrecterController.new(TwitterAdapter.new(auth), logger)
@@ -39,8 +45,6 @@ module MrCorrecter
 
         logger.info "Finished."
     end
-
-    private
 
     def self.auth
         { :consumer_key => configuration.twitter_consumer_key, :consumer_secret => configuration.twitter_consumer_secret,

@@ -2,12 +2,11 @@
 module MrCorrecter
     class MrCorrecterController
 
-        NEW_POST_TWEET_INTVAL = 50
-
-        def initialize(twitter_adapter, logger, search_period = MrCorrecter::configuration.search_period_hours)
+        def initialize(twitter_adapter, logger, search_period = MrCorrecter.configuration.search_period_hours)
             @twitter_adapter = twitter_adapter
             @logger = logger
             @search_period = search_period
+            @new_tweet_post_interval = MrCorrecter.configuration.new_tweet_post_interval
         end
 
         def find_and_correct(corrections = [])
@@ -29,7 +28,7 @@ module MrCorrecter
             tweets_with_spelling_errors.each_with_index do |tweet, i|
                 correct(tweet, correction)
 
-                if (i + 1) % NEW_POST_TWEET_INTVAL == 0
+                if (i + 1) % @new_tweet_post_interval == 0
                     @logger.info("Posting a spelling update")
 
                     spelling_update_tweet = CorrectionTweet.new(correction)
@@ -45,7 +44,7 @@ module MrCorrecter
             @logger.debug("Replying to #{tweet.id} with '#{reply_tweet_text}'")
 
             begin
-                @twitter_adapter.reply_to(tweet, reply_tweet_text) if MrCorrecter::configuration.post_tweets
+                @twitter_adapter.reply_to(tweet, reply_tweet_text) if MrCorrecter.configuration.post_tweets
             rescue Exception => e
                 @logger.warn("Exception! #{e.message}")
             end
@@ -56,7 +55,7 @@ module MrCorrecter
             @logger.debug("Posting '#{text}'")
 
             begin
-                @twitter_adapter.send(text) if MrCorrecter::configuration.post_tweets
+                @twitter_adapter.send(text) if MrCorrecter.configuration.post_tweets
             rescue Exception => e
                 @logger.warn("Exception! #{e.message}")
             end
