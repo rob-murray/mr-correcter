@@ -11,15 +11,12 @@ desc "Run MrCorrecter"
 task :run do |t, args|
     require_relative 'lib/mr_correcter'
 
-    MrCorrecter.configure do |config|
-      config.post_tweets = false
-      config.search_period_hours = 2
+    # MrCorrecter.configure do |config|
+    #   config.post_tweets = false
+    #   config.search_period_hours = 2
+    # end
 
-      config.twitter_consumer_key = 'secret'
-      config.twitter_consumer_secret = 'secret'
-      config.twitter_oauth_token = 'secret'
-      config.twitter_oauth_secret = 'secret'
-    end
+    MrCorrecter.load_config "config.yml"
 
     # examples
     MrCorrecter.add_correction("accomodate", "accommodate")

@@ -1,0 +1,10 @@
+mr_correcter:
+    search_period_hours: 2
+    new_tweet_post_interval: 25
+    post_tweets: No
+
+twitter:
+    consumer_key: secret
+    consumer_secret: secret
+    oauth_token: secret
+    oauth_secret: secret

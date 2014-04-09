@@ -27,6 +27,10 @@ module MrCorrecter
         yield(configuration)
     end
 
+    def self.load_config(filename)
+        @configuration = Configuration.load_from_file(filename)
+    end
+
     def self.logger
         @logger ||= Logger.new(configuration.logger_output)
     end
