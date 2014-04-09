@@ -8,7 +8,7 @@
 
 MrCorrecter is a friendly guy, he searches Twitter for spelling mistakes and replies to the tweets pointing out to the tweeters that they have misspelled a word.
 
-[https://twitter.com/Mr_Correcter](https://twitter.com/Mr_Correcter)
+[Mr_Correcter](https://twitter.com/Mr_Correcter)
 
 #### Apology
 
@@ -25,14 +25,15 @@ It appears that not many people enjoy being corrected and reply back to **mr-cor
 In order to use this code you will have to checkout this repo and change the Twitter API credentials used.
 
 1. `bundle install`.
-2. Edit `Rakefile` and amend Twitter API credentials, spelling mistakes to be corrected, etc. See `lib/mr-correcter/configuration.rb` for full details.
+2. Create and edit `config.yml` (see `config.example.yml` for details) or amend the configuration block in `Rakefile`. Alter parameters and add Twitter API credentials. Also edit corrections if necessary.
+3. Ready to go.
 
 
 ### Usage
 
 #### Run
 
-To run **mr-correcter**, after editing any configuration, just run the rake task, sit back and enjoy mayhem.
+To run **mr-correcter**, after editing any configuration, just run the rake task then sit back and enjoy mayhem.
 
 ```bash
 $ rake run
