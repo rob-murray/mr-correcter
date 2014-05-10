@@ -1,9 +1,9 @@
 
-require "coveralls"
+require 'coveralls'
 Coveralls.wear!
 
 project_root = File.dirname(File.absolute_path(__FILE__))
-Dir.glob(project_root + '/../lib/*') {|file| require file}
+Dir.glob(project_root + '/../lib/*') { |file| require file }
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
