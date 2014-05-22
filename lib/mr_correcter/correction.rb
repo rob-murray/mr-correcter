@@ -4,7 +4,7 @@ module MrCorrecter
     attr_reader :incorrect_spelling, :correct_spelling
 
     def initialize(incorrect_spelling, correct_spelling)
-      fail fail ArgumentError, 'Invalid Argument' unless valid_corrections?(incorrect_spelling, correct_spelling)
+      fail ArgumentError, 'Invalid Argument' unless valid_corrections?(incorrect_spelling, correct_spelling)
 
       @incorrect_spelling = incorrect_spelling
       @correct_spelling = correct_spelling
