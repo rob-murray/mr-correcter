@@ -9,7 +9,7 @@ module MrCorrecter
     ]
 
     def initialize(correction)
-      fail fail ArgumentError, 'Invalid Argument: correction nil' if correction.nil?
+      fail ArgumentError, 'Invalid Argument: correction nil' if correction.nil?
 
       @correction = correction
     end
