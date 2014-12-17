@@ -1,11 +1,10 @@
 ## mr-correcter
 
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/rob-murray/mr-correcter?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 [![Build Status](https://travis-ci.org/rob-murray/mr-correcter.png?branch=master)](https://travis-ci.org/rob-murray/mr-correcter)
 [![Code Climate](https://codeclimate.com/github/rob-murray/mr-correcter.png)](https://codeclimate.com/github/rob-murray/mr-correcter)
 [![Coverage Status](https://coveralls.io/repos/rob-murray/mr-correcter/badge.png)](https://coveralls.io/r/rob-murray/mr-correcter)
 [![Haz Commitz Status](http://haz-commitz.herokuapp.com/repos/rob-murray/mr-correcter.svg)](http://haz-commitz.herokuapp.com/repos/rob-murray/mr-correcter)
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/rob-murray/mr-correcter?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ### Description
 
