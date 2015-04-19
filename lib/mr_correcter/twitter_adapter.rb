@@ -22,12 +22,10 @@ module MrCorrecter
       tweets = []
       return tweets if text.nil? || text.empty?
 
-      time_ago = get_time_ago(since_mins_ago * 60) # we get minutes in args, this calculation needs seconds
-
       # rate limited!
       @client.search("\"#{text}\"").each do |result|
         if since_mins_ago > 0
-          tweets << result if tweet_in_time?(result.created_at, time_ago)
+          tweets << result if tweet_in_time?(result.created_at, time_ago_in_seconds(since_mins_ago))
         else
           tweets << result
         end
@@ -65,6 +63,10 @@ module MrCorrecter
 
     def get_time_ago(time_ago_seconds)
       Time.now - time_ago_seconds
+    end
+
+    def time_ago_in_seconds(since_mins_ago)
+      get_time_ago(since_mins_ago * 60)
     end
   end
 end

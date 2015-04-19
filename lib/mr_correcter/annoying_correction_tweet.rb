@@ -2,7 +2,7 @@ require_relative 'correction_tweet'
 
 module MrCorrecter
   class AnnoyingCorrectionTweet < CorrectionTweet
-    BASE_TEXT = "I think you meant to type '%s'"
+    BASE_TEXT = "I think you meant to type '%s'".freeze
 
     def initialize(correction)
       super(correction)
